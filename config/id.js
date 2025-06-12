@@ -15,12 +15,12 @@ const defaultOsmApiConnections = {
   live: {
     url: 'https://www.openstreetmap.org',
     apiUrl: 'https://api.openstreetmap.org',
-    client_id: '0tmNTmd0Jo1dQp4AUmMBLtGiD9YpMuXzHefitcuVStc'
+    client_id: 'JHvon_-Q5ez357REB4jY7pnvXmyW4MyabXWVXdC_H7A'
   },
-  dev: {
-    url: 'https://api06.dev.openstreetmap.org',
-    client_id: 'Ee1wWJ6UlpERbF6BfTNOpwn0R8k_06mvMXdDUkeHMgw'
-  }
+  // dev: {
+  //   url: 'https://api06.dev.openstreetmap.org',
+  //   client_id: 'Ee1wWJ6UlpERbF6BfTNOpwn0R8k_06mvMXdDUkeHMgw'
+  // }
 };
 const osmApiConnections = [];
 if (ENV__ID_API_CONNECTION_URL !== null &&
