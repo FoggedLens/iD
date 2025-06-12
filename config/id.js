@@ -2,7 +2,7 @@
 
 // cdns for external data packages
 const presetsCdnUrl = ENV__ID_PRESETS_CDN_URL
-  || 'https://cdn.jsdelivr.net/npm/@openstreetmap/id-tagging-schema@{presets_version}/';
+  || 'https://id-tagging-schema.deflock.me/';
 const ociCdnUrl = ENV__ID_OCI_CDN_URL
   || 'https://cdn.jsdelivr.net/npm/osm-community-index@{version}/';
 const wmfSitematrixCdnUrl = ENV__ID_WMF_SITEMATRIX_CDN_URL
@@ -12,15 +12,15 @@ const nsiCdnUrl = ENV__ID_NSI_CDN_URL
 
 // api urls and settings
 const defaultOsmApiConnections = {
-  live: {
-    url: 'https://www.openstreetmap.org',
-    apiUrl: 'https://api.openstreetmap.org',
-    client_id: 'JHvon_-Q5ez357REB4jY7pnvXmyW4MyabXWVXdC_H7A'
-  },
-  // dev: {
-  //   url: 'https://api06.dev.openstreetmap.org',
-  //   client_id: 'Ee1wWJ6UlpERbF6BfTNOpwn0R8k_06mvMXdDUkeHMgw'
-  // }
+  // live: {
+  //   url: 'https://www.openstreetmap.org',
+  //   apiUrl: 'https://api.openstreetmap.org',
+  //   client_id: 'JHvon_-Q5ez357REB4jY7pnvXmyW4MyabXWVXdC_H7A'
+  // },
+  dev: {
+    url: 'https://api06.dev.openstreetmap.org',
+    client_id: 'BpM31KdNZabpOoHJnoQJmRWIhwdpVy0oZA0tZdKoXg8'
+  }
 };
 const osmApiConnections = [];
 if (ENV__ID_API_CONNECTION_URL !== null &&
