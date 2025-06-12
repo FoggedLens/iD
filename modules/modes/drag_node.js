@@ -130,8 +130,9 @@ export function modeDragNode(context) {
     function start(d3_event, entity) {
         _wasMidpoint = entity.type === 'midpoint';
         var hasHidden = context.features().hasHiddenConnections(entity, context.graph());
-        _isCancelled = !context.editable() || d3_event.shiftKey || hasHidden;
-
+        var isNewFeature = !entity.version;
+        // var isALPR = entity.tags && entity.tags['surveillance:type'] === 'ALPR'; // Allow ALPR editing
+        _isCancelled = !context.editable() || d3_event.shiftKey || hasHidden || !isNewFeature;
 
         if (_isCancelled) {
             if (hasHidden) {
@@ -139,6 +140,11 @@ export function modeDragNode(context) {
                     .duration(4000)
                     .iconName('#iD-icon-no')
                     .label(t.append('modes.drag_node.connected_to_hidden'))();
+            } else if (!isNewFeature) {
+                context.ui().flash
+                    .duration(4000)
+                    .iconName('#iD-icon-no')
+                    .label(t.append('modes.drag_node.editing_existing_not_allowed'))();
             }
             return drag.cancel();
         }

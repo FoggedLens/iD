@@ -59,7 +59,6 @@ export function uiToolDrawModes(context) {
 
         var wrap = selection
             .append('div')
-            .attr('class', 'joined')
             .style('display', 'flex');
 
         var debouncedUpdate = _debounce(update, 500, { leading: true, trailing: true });

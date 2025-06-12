@@ -23,7 +23,7 @@ en:
     undo_redo: Undo / Redo
     recent: Recent
     favorites: Favorites
-    add_feature: Add Feature
+    add_feature: Add Features
   title:
     format:
       context: "{base} – {context}"
@@ -42,8 +42,8 @@ en:
       description: "Add highways, streets, pedestrian paths, canals or other lines to the map."
       filter_tooltip: lines
     add_point:
-      title: Point
-      description: "Add restaurants, monuments, postal boxes or other points to the map."
+      title: Add ALPR
+      description: "Add an ALPR"
       filter_tooltip: points
     add_note:
       title: Note
@@ -57,6 +57,7 @@ en:
       description: Pan and zoom the map.
     drag_node:
       connected_to_hidden: This can't be edited because it is connected to a hidden feature.
+      editing_existing_not_allowed: Moving existing features is not allowed.
   operations:
     _unavailable:
       Cannot perform “{operation}” on currently selected features.

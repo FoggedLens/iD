@@ -7,6 +7,11 @@ export function actionDeleteNode(nodeId) {
     var action = function(graph) {
         var node = graph.entity(nodeId);
 
+        // Prevent deletion of existing nodes (anti-vandalism)
+        if (node.version) {
+            throw new Error('Deletion of existing features is not allowed.');
+        }
+
         graph.parentWays(node)
             .forEach(function(parent) {
                 parent = parent.removeNode(nodeId);
