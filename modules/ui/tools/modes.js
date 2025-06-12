@@ -26,22 +26,8 @@ export function uiToolDrawModes(context) {
             title: t.append('modes.add_point.title'),
             button: 'point',
             description: t.append('modes.add_point.description'),
-            preset: presetManager.item('point'),
+            preset: presetManager.item('man_made/surveillance/camera'), // Restrict to ALPR preset
             key: '1'
-        }),
-        modeAddLine(context, {
-            title: t.append('modes.add_line.title'),
-            button: 'line',
-            description: t.append('modes.add_line.description'),
-            preset: presetManager.item('line'),
-            key: '2'
-        }),
-        modeAddArea(context, {
-            title: t.append('modes.add_area.title'),
-            button: 'area',
-            description: t.append('modes.add_area.description'),
-            preset: presetManager.item('area'),
-            key: '3'
         })
     ];
 
