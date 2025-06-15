@@ -12,11 +12,11 @@ const nsiCdnUrl = ENV__ID_NSI_CDN_URL
 
 // api urls and settings
 const defaultOsmApiConnections = {
-  // live: {
-  //   url: 'https://www.openstreetmap.org',
-  //   apiUrl: 'https://api.openstreetmap.org',
-  //   client_id: 'JHvon_-Q5ez357REB4jY7pnvXmyW4MyabXWVXdC_H7A'
-  // },
+  live: {
+    url: 'https://www.openstreetmap.org',
+    apiUrl: 'https://api.openstreetmap.org',
+    client_id: 'JHvon_-Q5ez357REB4jY7pnvXmyW4MyabXWVXdC_H7A'
+  },
   dev: {
     url: 'https://api06.dev.openstreetmap.org',
     client_id: 'BpM31KdNZabpOoHJnoQJmRWIhwdpVy0oZA0tZdKoXg8'

@@ -44,11 +44,11 @@ export function uiEntityEditor(context) {
 
         var direction = (localizer.textDirection() === 'rtl') ? 'forward' : 'backward';
 
-        headerEnter
-            .append('button')
-            .attr('class', 'preset-reset preset-choose')
-            .attr('title', t('inspector.back_tooltip'))
-            .call(svgIcon(`#iD-icon-${direction}`));
+        // headerEnter
+        //     .append('button')
+        //     .attr('class', 'preset-reset preset-choose')
+        //     .attr('title', t('inspector.back_tooltip'))
+        //     .call(svgIcon(`#iD-icon-${direction}`));
 
         headerEnter
             .append('button')

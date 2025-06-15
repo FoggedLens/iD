@@ -350,7 +350,7 @@ export function uiInit(context) {
 
 
         // hide the sidebar by default
-        // ui.sidebar.toggle(false);
+        ui.sidebar.toggle(false);
 
         // Setup map dimensions and move map to initial center/zoom.
         // This should happen after .main-content and toolbars exist.

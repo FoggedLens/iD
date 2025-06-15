@@ -38,11 +38,11 @@ export function uiSectionFeatureType(context) {
 
         var presetButton = presetButtonWrap
             .append('button')
-            .attr('class', 'preset-list-button preset-reset')
-            .call(uiTooltip()
-                .title(() => t.append('inspector.back_tooltip'))
-                .placement('bottom')
-            );
+            .attr('class', 'preset-list-button preset-reset');
+            // .call(uiTooltip()
+            //     .title(() => t.append('inspector.back_tooltip'))
+            //     .placement('bottom')
+            // );
 
         presetButton.append('div')
             .attr('class', 'preset-icon-container');
@@ -77,14 +77,14 @@ export function uiSectionFeatureType(context) {
                 .call(_tagReference.body);
         }
 
-        selection.selectAll('.preset-reset')
-            .on('click', function() {
-                 dispatch.call('choose', this, _presets);
-            })
-            .on('pointerdown pointerup mousedown mouseup', function(d3_event) {
-                d3_event.preventDefault();
-                d3_event.stopPropagation();
-            });
+        // selection.selectAll('.preset-reset')
+        //     .on('click', function() {
+        //          dispatch.call('choose', this, _presets);
+        //     })
+        //     .on('pointerdown pointerup mousedown mouseup', function(d3_event) {
+        //         d3_event.preventDefault();
+        //         d3_event.stopPropagation();
+        //     });
 
         var geometries = entityGeometries();
         selection.select('.preset-list-item button')

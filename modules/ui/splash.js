@@ -4,6 +4,7 @@ import { t } from '../core/localizer';
 import { uiIntro } from './intro';
 import { uiModal } from './modal';
 import { uiSectionPrivacy } from './sections/privacy';
+import { html } from 'd3';
 
 
 export function uiSplash(context) {
@@ -39,9 +40,17 @@ export function uiSplash(context) {
       .append('div')
       .attr('class', 'fillL');
 
+    // Add logo at the top of the splash screen
     introModal
       .append('div')
-      .attr('class','modal-section')
+      .attr('class', 'modal-logo')
+      .append('img')
+      .attr('src', 'https://deflock.me/deflock-logo.svg')
+      .attr('alt', 'Deflock Logo');
+
+    introModal
+      .append('div')
+      .attr('class','modal-section text-center')
       .append('h3')
       .call(t.append('splash.welcome'));
 
@@ -53,8 +62,7 @@ export function uiSplash(context) {
       .append('p')
       .html(t.html('splash.text', {
         version: context.version,
-        website: { html: '<a target="_blank" href="https://github.com/openstreetmap/iD/blob/develop/CHANGELOG.md#whats-new">' + t.html('splash.changelog') + '</a>' },
-        github: { html: '<a target="_blank" href="https://github.com/openstreetmap/iD/issues">github.com</a>' }
+        idWiki: { html: `<a target="_blank" href="https://wiki.openstreetmap.org/wiki/iD">OSM's iD Editor</a>` },
       }));
 
     modalSection
@@ -73,23 +81,23 @@ export function uiSplash(context) {
       .append('div')
       .attr('class', 'modal-actions');
 
-    let walkthrough = buttonWrap
-      .append('button')
-      .attr('class', 'walkthrough')
-      .on('click', () => {
-        context.container().call(uiIntro(context));
-        modalSelection.close();
-      });
+    // let walkthrough = buttonWrap
+    //   .append('button')
+    //   .attr('class', 'walkthrough')
+    //   .on('click', () => {
+    //     context.container().call(uiIntro(context));
+    //     modalSelection.close();
+    //   });
 
-    walkthrough
-      .append('svg')
-      .attr('class', 'logo logo-walkthrough')
-      .append('use')
-      .attr('xlink:href', '#iD-logo-walkthrough');
+    // walkthrough
+    //   .append('svg')
+    //   .attr('class', 'logo logo-walkthrough')
+    //   .append('use')
+    //   .attr('xlink:href', '#iD-logo-walkthrough');
 
-    walkthrough
-      .append('div')
-      .call(t.append('splash.walkthrough'));
+    // walkthrough
+    //   .append('div')
+    //   .call(t.append('splash.walkthrough'));
 
     let startEditing = buttonWrap
       .append('button')

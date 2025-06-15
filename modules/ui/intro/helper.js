@@ -139,7 +139,6 @@ export function helpHtml(id, replacements) {
         tags: t.html('inspector.tags'),
         relations: t.html('inspector.relations'),
         new_relation: t.html('inspector.new_relation'),
-        turn_restrictions: t.html('_tagging.presets.fields.restrictions.label'),
         background_settings: t.html('background.description'),
         imagery_offset: t.html('background.fix_misalignment'),
         start_the_walkthrough: t.html('splash.walkthrough'),
