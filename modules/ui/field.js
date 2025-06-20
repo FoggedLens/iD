@@ -53,6 +53,33 @@ export function uiField(context, presetField, entityIDs, options) {
         field.impl = uiFields[field.type](field, context)
             .on('change', function(t, onInput) {
                 dispatch.call('change', field, t, onInput);
+
+                // Ensure the logic for manufacturer:wikidata is executed after a change
+                if (field.key === 'manufacturer') {
+                    const manufacturersToWikidata = {
+                        'Flock Safety': 'Q108485435',
+                        'Motorola Solutions': 'Q634815',
+                        'Genetec': 'Q30295174',
+                        'Leonardo': 'Q910379',
+                    };
+
+                    const currentManufacturer = t['manufacturer'];
+                    if (currentManufacturer) {
+                        const wikidataKey = 'manufacturer:wikidata';
+                        const wikidataValue = manufacturersToWikidata[currentManufacturer];
+                        if (t[wikidataKey] !== wikidataValue) {
+                            const tagUpdate = {};
+                            tagUpdate[wikidataKey] = wikidataValue;
+                            dispatch.call('change', this, tagUpdate);
+                        }
+                    } else {
+                        // If the manufacturer is removed, ensure the wikidata tag is deleted
+                        const wikidataKey = 'manufacturer:wikidata';
+                        const tagUpdate = {};
+                        tagUpdate[wikidataKey] = undefined;
+                        dispatch.call('change', this, tagUpdate);
+                    }
+                }
             });
 
         if (entityIDs) {
@@ -132,6 +159,10 @@ export function uiField(context, presetField, entityIDs, options) {
         allKeys().forEach(function(key) {
             t[key] = undefined;
         });
+
+        if (d.key === 'manufacturer') {
+            t['manufacturer:wikidata'] = undefined;
+        }
 
         dispatch.call('change', d, t);
     }

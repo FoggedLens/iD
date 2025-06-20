@@ -26,7 +26,7 @@ export function uiToolDrawModes(context) {
             title: t.append('modes.add_point.title'),
             button: 'point',
             description: t.append('modes.add_point.description'),
-            preset: presetManager.item('man_made/surveillance/camera'), // Restrict to ALPR preset
+            preset: presetManager.item('man_made/surveillance/alpr'), // Restrict to ALPR preset
             key: '1'
         })
     ];

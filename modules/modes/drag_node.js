@@ -130,9 +130,9 @@ export function modeDragNode(context) {
     function start(d3_event, entity) {
         _wasMidpoint = entity.type === 'midpoint';
         var hasHidden = context.features().hasHiddenConnections(entity, context.graph());
-        var isNewFeature = !entity.version;
-        // var isALPR = entity.tags && entity.tags['surveillance:type'] === 'ALPR'; // Allow ALPR editing
-        _isCancelled = !context.editable() || d3_event.shiftKey || hasHidden || !isNewFeature;
+        // var isNewFeature = !entity.version;
+        var isALPR = entity.tags && entity.tags['surveillance:type'] === 'ALPR';
+        _isCancelled = !context.editable() || d3_event.shiftKey || hasHidden || !isALPR;
 
         if (_isCancelled) {
             if (hasHidden) {
@@ -140,7 +140,7 @@ export function modeDragNode(context) {
                     .duration(4000)
                     .iconName('#iD-icon-no')
                     .label(t.append('modes.drag_node.connected_to_hidden'))();
-            } else if (!isNewFeature) {
+            } else if (!isALPR) {
                 context.ui().flash
                     .duration(4000)
                     .iconName('#iD-icon-no')
